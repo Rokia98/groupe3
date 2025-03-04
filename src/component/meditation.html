@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de Méditation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div id="navbar"></div> 
+    <main class="container mx-auto p-6">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Méditation de pleine conscience</h2>
+                <p class="mt-2">Une session de méditation guidée pour vous aider à vous recentrer.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Alon Ohana - Piano Concerto No 21.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Relaxation profonde</h2>
+                <p class="mt-2">Plongez dans une relaxation profonde avec cette méditation.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Bubblz - Dancing Butterfly.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Méditation pour l'anxiété</h2>
+                <p class="mt-2">Une méditation conçue pour apaiser l'anxiété et le stress.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/dazeychain - Good Love.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Relaxation profonde</h2>
+                <p class="mt-2">Plongez dans une relaxation profonde avec cette méditation.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Kashido - Shell Be Coming Round the Mountain.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Méditation pour l'anxiété</h2>
+                <p class="mt-2">Une méditation conçue pour apaiser l'anxiété et le stress.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Liam Mansfield - A Little Curious.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Relaxation profonde</h2>
+                <p class="mt-2">Plongez dans une relaxation profonde avec cette méditation.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Marcelo Nami - Back Again with My Ukulele.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Méditation pour l'anxiété</h2>
+                <p class="mt-2">Une méditation conçue pour apaiser l'anxiété et le stress.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Maya Isacowitz - Our Story - Instrumental Version.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Relaxation profonde</h2>
+                <p class="mt-2">Plongez dans une relaxation profonde avec cette méditation.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Randy Sharp - Ice Cream Truck Song.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Méditation pour l'anxiété</h2>
+                <p class="mt-2">Une méditation conçue pour apaiser l'anxiété et le stress.</p>
+                <audio controls class="mt-4 w-full">
+                    <source src="/assets/audios/Ty Simon - The Cat and the Yarn.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+
+            <!-- Ajoutez d'autres cartes d'audio ici -->
+
+        </section>
+    </main>
+    <div id="footer"></div>
+
+    <script>
+        // Charge la barre de navigation
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar").innerHTML = data;
+          });
+          // Charge le footer
+      fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+      </script>
+
+</body>
+</html>

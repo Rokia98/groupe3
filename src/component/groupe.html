@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupes de Soutien - Santé Mentale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-sky-50 to-sky-50">
+  <!-- Section Groupes de Soutien -->
+  <div id="navbar"></div>
+  <section class="py-16 px-12">
+    <div class=" text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] bg-no-repeat bg-cover text-white py-16 max-w-[5000px] max-h-[1000px] mx-auto ">
+      <!-- Titre -->
+      <h1 class="text-4xl font-bold text-sky-800 mb-6">Groupes de Soutien</h1>
+      <!-- Description -->
+      <p class="text-black text-lg mb-8">
+        Rejoignez des groupes pour partager vos expériences, recevoir du soutien et vous connecter avec d'autres personnes.
+      </p>
+    </div>
+
+
+      <!-- Grille de groupes de soutien -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Groupe 1 : Gestion du stress -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128524;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Gestion du stress</h2>
+          <p class="text-gray-600 mb-4">
+            Un groupe dédié à la gestion du stress et à la relaxation.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+
+        <!-- Groupe 2 : Anxiété et dépression -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128532;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Anxiété et dépression</h2>
+          <p class="text-gray-600 mb-4">
+            Un espace pour échanger sur l'anxiété et la dépression.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+
+        <!-- Groupe 3 : Parents et famille -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128106;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Parents et famille</h2>
+          <p class="text-gray-600 mb-4">
+            Un groupe pour les parents et les familles cherchant du soutien.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+
+        <!-- Groupe 4 : Jeunes adultes -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#127939;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Jeunes adultes</h2>
+          <p class="text-gray-600 mb-4">
+            Un espace pour les jeunes adultes confrontés à des défis mentaux.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+
+        <!-- Groupe 5 : Bien-être au travail -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128188;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Bien-être au travail</h2>
+          <p class="text-gray-600 mb-4">
+            Un groupe pour discuter de la santé mentale en milieu professionnel.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+
+        <!-- Groupe 6 : Méditation et pleine conscience -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128583;</div> <!-- Icône -->
+          <h2 class="text-xl font-semibold text-sky-800 mb-2">Méditation et pleine conscience</h2>
+          <p class="text-gray-600 mb-4">
+            Un groupe pour explorer la méditation et la pleine conscience.
+          </p>
+          <a
+            href="#"
+            class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            Rejoindre ce groupe
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Dans chaque page (index.html, groupes.html, etc.) -->
+<div id="navbar"></div>
+<footer id="footer"></footer> <!-- Emplacement pour la barre de navigation -->
+
+<script>
+  // Charge la barre de navigation
+ fetch("navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+      // Charge le footer
+      fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+      
+</script>
+</body>
+</html>

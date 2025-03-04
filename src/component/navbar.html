@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barre de Navigation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-2">
+        <!-- Logo -->
+        <img src="/assets/logo-removebg-preview.png" alt="Logo Méditation" class="w-40 h-20">
+  
+        <!-- Liens de navigation (version desktop) -->
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="home.html" class="text-gray-600 hover:text-sky-600">Accueil</a>
+          <a href="groupe.html" class="text-gray-600 hover:text-sky-600">Groupes de Soutien</a>
+          <a href="expert.html" class="text-gray-600 hover:text-sky-600">Échanges avec des Experts</a>
+          <a href="evenement.html" class="text-gray-600 hover:text-sky-600">Événements en Ligne</a>
+          <a href="meditation.html" class="text-gray-600 hover:text-sky-600">Meditation</a>
+        </div>
+  
+        <!-- Bouton de profil -->
+        <a href="/profile" class="bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 rounded-full w-10 h-10 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+          </svg>
+        </a>
+  
+        <!-- Bouton du menu mobile -->
+        <div class="md:hidden">
+          <button class="text-sky-800 focus:outline-none" id="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Menu mobile (à afficher/masquer) -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-2">
+        <a href="index.html" class="block text-gray-600 hover:text-sky-600">Accueil</a>
+        <a href="groupes.html" class="block text-gray-600 hover:text-sky-600">Groupes de Soutien</a>
+        <a href="experts.html" class="block text-gray-600 hover:text-sky-600">Échanges avec des Experts</a>
+        <a href="evenements.html" class="block text-gray-600 hover:text-sky-600">Événements en Ligne</a>
+        <a href="#meditation" class="block text-gray-600 hover:text-sky-600">Meditation</a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Script JavaScript pour le menu mobile -->
+  <script>
+      // Gestion du menu mobile
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>

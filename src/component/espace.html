@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Communautaire - Santé Mentale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-sky-50 to-sky-50">
+  <!-- Section Espace Communautaire -->
+  <div id="navbar"></div>
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Titre -->
+      <h2 class="text-4xl font-bold text-sky-800 mb-6">Espace Communautaire</h2>
+      <!-- Description -->
+      <p class="text-gray-600 text-lg mb-8">
+        Rejoignez des groupes de soutien et échangez avec des experts pour partager vos expériences et trouver du réconfort.
+      </p>
+
+      <!-- Grille de fonctionnalités -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Carte 1 : Groupes de soutien -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128101;</div> <!-- Icône -->
+          <h3 class="text-xl font-semibold text-sky-800 mb-2">Groupes de soutien</h3>
+          <p class="text-gray-600">Rejoignez des groupes de soutien pour partager vos expériences et recevoir du soutien.</p>
+        </div>
+
+        <!-- Carte 2 : Échanges avec des experts -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128105;&#8205;&#127891;</div> <!-- Icône -->
+          <h3 class="text-xl font-semibold text-sky-800 mb-2">Échanges avec des experts</h3>
+          <p class="text-gray-600">Discutez avec des psychologues et thérapeutes certifiés pour obtenir des conseils personnalisés.</p>
+        </div>
+
+        <!-- Carte 3 : Événements en ligne -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-sky-600 text-4xl mb-4">&#128197;</div> <!-- Icône -->
+          <h3 class="text-xl font-semibold text-sky-800 mb-2">Événements en ligne</h3>
+          <p class="text-gray-600">Participez à des webinaires et ateliers animés par des professionnels.</p>
+        </div>
+      </div>
+
+      <!-- Bouton d'action -->
+      <div class="mt-12">
+        <a
+          href="#"
+          class="bg-sky-600 text-white py-3 px-8 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-colors"
+        >
+          Rejoindre la communauté
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Dans chaque page (index.html, groupes.html, etc.) -->
+<div id="navbar"></div> <!-- Emplacement pour la barre de navigation -->
+<footer id="footer"></footer>
+
+<script>
+  // Charge la barre de navigation
+  fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+</body>
+</html>

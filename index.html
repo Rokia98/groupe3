@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-[url('assets/img1.jpg')] bg-no-repeat bg-cover text-white text-center py-16">
+      <h1 class="text-4xl font-bold">Votre bien-être mental, notre priorité</h1>
+      <p class="mt-4 text-lg">Accédez à un soutien psychologique où que vous soyez en Côte d'Ivoire.</p>
+      <a href="src/component/connexion.html" class="mt-6 inline-block bg-white text-sky-800 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-200">Découvrir</a>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="max-w-6xl mx-auto py-16 px-6">
+      <h2 class="text-3xl font-bold text-center text-sky-800">Nos Services</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-10">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/connexion.html">Consultations en Ligne</a></h3>
+              <p class="mt-2 text-gray-600">Accédez à des psychologues et thérapeutes certifiés à distance.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/connexion.html">Espace Communautaire</a></h3>
+              <p class="mt-2 text-gray-600">Rejoignez des groupes de soutien et échangez avec des experts.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 class="text-xl font-semibold text-sky-800" ><a href="src/component/connexion.html">Ressources Educatives</a></h3>
+              <p class="mt-2 text-gray-600">Découvrez des articles et conseils pour prendre soin de votre santé mentale.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="bg-gray-200 py-16">
+      <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center text-sky-800">Témoignages</h2>
+          <div class="grid md:grid-cols-2 gap-6 mt-10">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                  <p class="text-gray-700 italic">“Grâce à cette plateforme, j’ai trouvé un soutien psychologique sans avoir à me déplacer.”</p>
+                  <p class="mt-4 text-right font-semibold">— Awa K.</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                  <p class="text-gray-700 italic">“Les consultations en ligne m’ont beaucoup aidé à mieux gérer mon anxiété.”</p>
+                  <p class="mt-4 text-right font-semibold">— Jean M.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+  </footer>
+  <script>
+
+    fetch("src/component/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+            document.getElementById("footer").innerHTML = data;
+        });
+        
+  </script>
+</body>
+</html>

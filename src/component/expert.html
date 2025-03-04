@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Échanges avec des Experts - Santé Mentale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-sky-50 to-sky-50">
+  <!-- Section Échanges avec des Experts -->
+  <div id="navbar"></div> 
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <!-- Titre -->
+      <h1 class="text-4xl font-bold text-sky-800 mb-6">Échanges avec des Experts</h1>
+      <!-- Description -->
+      <p class="text-gray-600 text-lg mb-8">
+        Discutez avec des psychologues et thérapeutes certifiés pour obtenir des conseils personnalisés.
+      </p>
+
+      <!-- Grille d'experts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="experts-grid">
+        <!-- Les experts seront injectés ici par JavaScript -->
+      </div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+
+  <!-- Script JavaScript pour afficher les experts -->
+  <script>
+    // Données des experts (simulées)
+    let experts = [
+      {
+        name: "Dr. Sophie Martin",
+        specialty: "Psychologue clinicienne",
+        description: "Spécialisée dans la gestion du stress et l'anxiété.",
+        image: "https://img.freepik.com/photos-gratuite/medecin-coup-moyen-posant-studio_23-2150275683.jpg?ga=GA1.1.55897064.1733674699&semt=ais_hybrid", // Remplacez par une vraie image
+        contact: "sophie.martin@example.com",
+      },
+      {
+        name: "Dr. Jean Dupont",
+        specialty: "Thérapeute familial",
+        description: "Expert en relations familiales et conjugales.",
+        image: "https://img.freepik.com/photos-gratuite/homme-medecin-afro-americain-noir-fond-blanc-stethoscope-isole_231208-2222.jpg?ga=GA1.1.55897064.1733674699&semt=ais_hybrid", // Remplacez par une vraie image
+        contact: "jean.dupont@example.com",
+      },
+      {
+        name: "Dr. Marie Leroy",
+        specialty: "Psychiatre",
+        description: "Spécialisée dans les troubles de l'humeur et la dépression.",
+        image: "https://img.freepik.com/photos-premium/jeune-biologiste-africaine-travaille-dans-laboratoire_87646-565.jpg?w=740", // Remplacez par une vraie image
+        contact: "marie.leroy@example.com",
+      },
+      {
+        name: "Dr. Pierre Lambert",
+        specialty: "Psychologue du travail",
+        description: "Expert en bien-être et santé mentale au travail.",
+        image: "https://img.freepik.com/photos-gratuite/portrait-jeune-femme-medecin-afro-americaine-fond-bleu_93675-132921.jpg?ga=GA1.1.55897064.1733674699&semt=ais_hybrid", // Remplacez par une vraie image
+        contact: "pierre.lambert@example.com",
+      },
+      {
+        name: "Dr. Laura Petit",
+        specialty: "Thérapeute en pleine conscience",
+        description: "Spécialisée en méditation et techniques de relaxation.",
+        image: "https://img.freepik.com/photos-gratuite/medecin-smiley-coup-moyen-manteau_23-2148814212.jpg?ga=GA1.1.55897064.1733674699&semt=ais_hybrid", // Remplacez par une vraie image
+        contact: "laura.petit@example.com",
+      },
+      {
+        name: "Dr. Thomas Moreau",
+        specialty: "Psychologue pour enfants",
+        description: "Expert en troubles du développement chez les enfants.",
+        image: "https://img.freepik.com/photos-gratuite/docteur-ethnique-gai-bras-croises_23-2147767333.jpg?ga=GA1.1.55897064.1733674699&semt=ais_hybrid", // Remplacez par une vraie image
+        contact: "thomas.moreau@example.com",
+      },
+    ];
+
+    // Fonction pour afficher les experts
+    function renderExperts() {
+      const expertsGrid = document.getElementById("experts-grid");
+
+      experts.forEach((expert) => {
+        const expertCard = `
+          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <img src="${expert.image}" alt="${expert.name}" class="w-24 h-24 rounded-full mx-auto mb-10">
+            <h2 class="text-xl font-semibold text-sky-800 mb-2">${expert.name}</h2>
+            <p class="text-gray-600 font-medium mb-2">${expert.specialty}</p>
+            <p class="text-gray-600 mb-4">${expert.description}</p>
+            <a
+              href="mailto:${expert.contact}"
+              class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            >
+              Contacter
+            </a>
+          </div>
+        `;
+        expertsGrid.innerHTML += expertCard;
+      });
+    }
+
+    // Appel de la fonction pour afficher les experts
+    renderExperts();
+
+  // Charge la barre de navigation
+  fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+    // Charge le footer
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
