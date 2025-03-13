@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Groupe - Échange de Messages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-sky-600 text-white py-4">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold">Groupe de Soutien</a>
+            <div>
+                <a href="profile.html" class="text-white hover:text-gray-200">Mon Profil</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section principale -->
+    <main class="max-w-6xl mx-auto mt-8 px-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+
+            <!-- Titre du groupe -->
+            <h1 class="text-2xl font-bold text-sky-600">Groupe de soutien : Santé Mentale</h1>
+            <p class="text-gray-600 mt-2">Partagez vos pensées, expériences et posez vos questions ici.</p>
+
+            <!-- Liste des messages -->
+            <div id="message-list" class="mt-6 space-y-4">
+                <!-- Exemple de message -->
+                <div class="p-4 bg-gray-50 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-gray-700">Utilisateur1</span>
+                        <span class="text-sm text-gray-500">Il y a 2 heures</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Je me sens stressé, des conseils pour gérer l'anxiété ?</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-gray-700">Utilisateur2</span>
+                        <span class="text-sm text-gray-500">Il y a 1 heure</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Essayez la respiration profonde, ça m'aide beaucoup.</p>
+                </div>
+            </div>
+
+            <!-- Formulaire d'ajout de message -->
+            <div class="mt-6">
+                <textarea id="message-input" class="w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Écrivez un message..."></textarea>
+                <button id="send-message" class="w-full mt-4 bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">Envoyer</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-center py-4 mt-8">
+        <p class="text-gray-600">© 2025 Groupe de Soutien - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Fonction pour ajouter un message
+        document.getElementById("send-message").addEventListener("click", function () {
+            const messageInput = document.getElementById("message-input");
+            const messageText = messageInput.value.trim();
+
+            if (messageText !== "") {
+                // Créer un nouvel élément de message
+                const newMessage = document.createElement("div");
+                newMessage.classList.add("p-4", "bg-gray-50", "rounded-lg", "shadow-md");
+
+                // Ajouter le contenu du message
+                newMessage.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-gray-700">Utilisateur Anonyme</span>
+                        <span class="text-sm text-gray-500">Juste maintenant</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">${messageText}</p>
+                `;
+
+                // Ajouter le nouveau message dans la liste
+                document.getElementById("message-list").appendChild(newMessage);
+
+                // Réinitialiser le champ de saisie
+                messageInput.value = "";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -3,96 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription aux Événements en Ligne - Santé Mentale</title>
+  <title>Inscription Anonyme</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-sky-50 to-sky-50">
-  <!-- Section Formulaire d'Inscription -->
-  <div id="navbar"></div>
-  <section class="py-16 px-4">
-    <div class="max-w-2xl mx-auto">
-      <!-- Titre -->
-      <h2 class="text-3xl font-bold text-sky-800 mb-6 text-center">Inscription aux Événements en Ligne</h2>
-      <!-- Description -->
-      <p class="text-gray-600 text-lg mb-8 text-center">
-        Remplissez le formulaire ci-dessous pour vous inscrire à un événement en ligne.
-      </p>
+<body class="bg-gradient-to-r from-sky-50 to-sky-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h1 class="text-2xl font-bold text-sky-800 text-center mb-4">Inscription Anonyme</h1>
+    <p class="text-gray-600 text-center mb-6">Aucune information personnelle requise. Votre inscription est totalement anonyme.</p>
 
-      <!-- Formulaire d'inscription -->
-      <form class="bg-white p-8 rounded-lg shadow-md">
-        <!-- Champ Nom complet -->
-        <div class="mb-6">
-          <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Nom complet</label>
-          <input
-            type="text"
-            id="name"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-            placeholder="Votre nom complet"
-            required
-          />
-        </div>
+    <form id="anonymousForm" class="space-y-4">
+      <!-- Identifiant généré automatiquement -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-1">Votre identifiant anonyme</label>
+        <input type="text" id="anonId" class="w-full px-4 py-2 border rounded-lg bg-gray-100 text-gray-500" readonly>
+      </div>
 
-        <!-- Champ Adresse e-mail -->
-        <div class="mb-6">
-          <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Adresse e-mail</label>
-          <input
-            type="email"
-            id="email"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-            placeholder="votre@email.com"
-            required
-          />
-        </div>
+      <!-- Question optionnelle -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-1">Posez une question (optionnel)</label>
+        <textarea id="question" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" rows="3" placeholder="Vous pouvez poser une question pour l'événement..."></textarea>
+      </div>
 
-        <!-- Champ Sélection de l'événement -->
-        <div class="mb-6">
-          <label for="event" class="block text-gray-700 text-sm font-medium mb-2">Événement</label>
-          <select
-            id="event"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-            required
-          >
-            <option value="">Sélectionnez un événement</option>
-            <option value="Gestion du stress">Gestion du stress</option>
-            <option value="Méditation guidée">Méditation guidée</option>
-            <option value="Atelier sur l'anxiété">Atelier sur l'anxiété</option>
-            <option value="Bien-être au travail">Bien-être au travail</option>
-            <option value="Pleine conscience">Pleine conscience</option>
-            <option value="Gestion des émotions">Gestion des émotions</option>
-          </select>
-        </div>
+      <!-- Bouton d'inscription -->
+      <button type="submit" class="w-full bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        S'inscrire anonymement
+      </button>
+    </form>
 
-        <!-- Champ Message (optionnel) -->
-        <div class="mb-6">
-          <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message (optionnel)</label>
-          <textarea
-            id="message"
-            rows="4"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-            placeholder="Avez-vous des questions ou des commentaires ?"
-          ></textarea>
-        </div>
+    <!-- Message de confirmation -->
+    <p id="confirmationMessage" class="text-green-600 text-center mt-4 hidden">
+      ✅ Inscription réussie ! Vous recevrez un lien sécurisé avant l'événement.
+    </p>
+  </div>
 
-        <!-- Bouton de soumission -->
-        <div class="text-center">
-          <button
-            type="submit"
-            class="bg-sky-600 text-white py-2 px-8 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-colors"
-          >
-            S'inscrire
-          </button>
-        </div>
-      </form>
-    </div>
-  </section>
   <script>
-    // Charge la barre de navigation
-    fetch("navbar.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("navbar").innerHTML = data;
-      });
+    // Générer un identifiant anonyme
+    function generateAnonId() {
+      return "USER-" + Math.random().toString(36).substr(2, 9);
+    }
+
+    document.getElementById("anonId").value = generateAnonId();
+
+    // Gestion du formulaire
+    document.getElementById("anonymousForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("confirmationMessage").classList.remove("hidden");
+    });
   </script>
-</script>
 </body>
 </html>

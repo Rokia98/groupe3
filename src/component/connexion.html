@@ -16,13 +16,13 @@
 
     <!-- Formulaire de connexion -->
     <form id="loginForm">
-      <!-- Champ Email -->
+      <!-- Champ pseudo -->
       <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Adresse e-mail</label>
+        <label for="pseudo" class="block text-gray-700 text-sm font-medium mb-2">Votre pseudo</label>
         <input
-          type="email"
-          id="email"
-          placeholder="votre@email.com"
+          type="pseudo"
+          id="pseudo"
+          placeholder="pseudo"
           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
           required
         />
@@ -59,7 +59,7 @@
       event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
       // Simuler une connexion réussie (vous pouvez ajouter une logique de validation ici)
-      const email = document.getElementById('email').value;
+      const pseudo = document.getElementById('pseudo').value;
       const password = document.getElementById('password').value;
 
       // Redirection vers la page d'accueil après la connexion

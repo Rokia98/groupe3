@@ -3,80 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription - Santé Mentale</title>
+  <title>Inscription</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-sky-50 to-sky-50 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-    <!-- Logo ou titre -->
-    <div class="text-center mb-6">
-      <h1 class="text-3xl font-bold text-sky-800">Inscription</h1>
-      <p class="text-gray-600">Créez un compte pour accéder à votre espace de santé mentale.</p>
-    </div>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+    <h2 class="text-xl font-bold text-center text-blue-600">Inscription</h2>
 
-    <!-- Formulaire d'inscription -->
-    <form>
-      <!-- Champ Nom -->
-      <div class="mb-4">
-        <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Nom complet</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Votre nom"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-          required
-        />
-      </div>
+    <form id="signupForm" class="mt-4">
+      <!-- Pseudo -->
+      <label class="block text-gray-700">Pseudo :</label>
+      <input type="text" name="pseudo" id="pseudo" class="w-full p-2 border rounded mb-3" required>
 
-      <!-- Champ Email -->
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Adresse e-mail</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="votre@email.com"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-          required
-        />
-      </div>
+      <!-- Mot de passe -->
+      <label class="block text-gray-700">Mot de passe :</label>
+      <input type="password" name="password" id="password" class="w-full p-2 border rounded mb-3" required>
 
-      <!-- Champ Mot de passe -->
-      <div class="mb-6">
-        <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Mot de passe</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="********"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-          required
-        />
-      </div>
-
-      <!-- Champ Confirmation du mot de passe -->
-      <div class="mb-6">
-        <label for="confirm-password" class="block text-gray-700 text-sm font-medium mb-2">Confirmez le mot de passe</label>
-        <input
-          type="password"
-          id="confirm-password"
-          placeholder="********"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-          required
-        />
-      </div>
-
-      <!-- Bouton d'inscription -->
-      <button
-        type="submit"
-        class="w-full bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
-      >
+      <!-- Bouton -->
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
         S'inscrire
       </button>
-
-      <!-- Lien de connexion -->
-      <div class="mt-4 text-center">
-        <p class="text-gray-600">Vous avez déjà un compte ? <a href="connexion.html" class="text-sky-600 hover:underline">Connectez-vous</a></p>
-      </div>
     </form>
+
+    <!-- Affichage de l'Identifiant -->
+    <div id="idContainer" class="mt-4 text-center hidden">
+      <p class="text-gray-700">Votre identifiant unique :</p>
+      <p id="generatedId" class="text-lg font-bold text-blue-600"></p>
+      <p class="text-gray-500 text-sm">Vous serez redirigé vers la page de connexion dans 5 secondes...</p>
+    </div>
   </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Générer un identifiant unique
+      const pseudo = document.getElementById("pseudo").value;
+      const uniqueId = "ID-" + Math.random().toString(36).substr(2, 6).toUpperCase();
+
+      // Afficher l'identifiant
+      document.getElementById("generatedId").textContent = `${pseudo}-${uniqueId}`;
+      document.getElementById("idContainer").classList.remove("hidden");
+
+      // Masquer le formulaire après soumission
+      this.classList.add("hidden");
+
+      // Rediriger vers la page de connexion après 5 secondes
+      setTimeout(function() {
+        window.location.href = "connexion.html"; // Remplacez par l'URL de votre page de connexion
+      }, 5000); // 5000 millisecondes = 5 secondes
+    });
+  </script>
 </body>
 </html>
