@@ -9,23 +9,23 @@
 <body class="bg-gray-50">
 
   <!-- Barre de navigation -->
-  <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+  <nav class="bg-sky-100 shadow-md fixed w-full top-0 z-50">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center py-3">
+      <div class="flex justify-between items-center py-2"> <!-- Réduire py-3 à py-2 -->
         
         <!-- Logo -->
         <a href="/index.html">
           <img src="/assets/logo1-removebg-preview.png" 
-               alt="Logo" class="w-20 h-20">
+               alt="Logo" class="w-16 h-16"> <!-- Réduire la taille du logo -->
         </a>
 
         <!-- Liens de navigation (version desktop) -->
         <div class="hidden md:flex space-x-6">
-          <a href="index.html" class="text-gray-700 hover:text-sky-600 transition">Accueil</a>
-          <a href="groupe.html" class="text-gray-700 hover:text-sky-600 transition">Groupes</a>
-          <a href="expert.html" class="text-gray-700 hover:text-sky-600 transition">Experts</a>
-          <a href="evenement.html" class="text-gray-700 hover:text-sky-600 transition">Événements</a>
-          <a href="meditation.html" class="text-gray-700 hover:text-sky-600 transition">Méditation</a>
+          <a href="/src/component/home.html" class="text-gray-700 hover:text-sky-600 transition">Accueil</a>
+          <a href="/src/component/groupe.html" class="text-gray-700 hover:text-sky-600 transition">Groupes</a>
+          <a href="/src/component/expert.html" class="text-gray-700 hover:text-sky-600 transition">Experts</a>
+          <a href="/src/component/evenement.html" class="text-gray-700 hover:text-sky-600 transition">Événements</a>
+          <a href="/src/component/meditation.html" class="text-gray-700 hover:text-sky-600 transition">Méditation</a>
         </div>
 
         <!-- Bouton Profil -->
@@ -60,13 +60,14 @@
   <!-- Script JavaScript pour le menu mobile -->
   <script>
     function checkAuthentication() {
-            const user = localStorage.getItem("user");
-            if (!user) {
-                window.location.href = "login.html";
-            }
-        }
+      const user = localStorage.getItem("user");
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    }
 
-        checkAuthentication();
+    checkAuthentication();
+
     document.addEventListener("DOMContentLoaded", function () {
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
