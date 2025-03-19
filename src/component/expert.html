@@ -7,14 +7,25 @@
   <link href="/dist/output.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-r from-sky-50 to-sky-50">
+  <!-- Section Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Section Bannière (Image) -->
+  <section class="py-16 px-12">
+    <div class="text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] bg-no-repeat bg-cover text-white py-16 max-w-full max-h-[600px] mx-auto">
+      <!-- Titre -->
+      <h1 class="text-4xl font-bold text-white mb-6">Échanger avec un expert</h1>
+      <!-- Description -->
+      <p class="text-white font-semibold text-lg mb-8 max-w-2xl mx-auto">
+        Discutez de vos préoccupations avec des experts qualifiés de manière totalement anonyme et confidentielle.
+      </p>
+    </div>
+  </section>
+
   <!-- Section Échanges Anonymes -->
-  <div id="navbar"></div> 
   <section class="py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-4xl font-bold text-sky-800 mb-6">Échanges Anonymes</h1>
-      <p class="text-gray-600 text-lg mb-8">
-        Discutez de vos préoccupations avec des experts qualifiés de manière totalement anonyme.
-      </p>
+      <h4 class="text-gray-800 text-2xl font-semibold mb-8">Échangez anonymement avec un expert</h4>
 
       <!-- Grille d'experts -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="experts-grid">
@@ -22,6 +33,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Section Footer -->
   <footer id="footer"></footer>
 
   <!-- Script JavaScript -->
@@ -40,18 +53,17 @@
       const expertsGrid = document.getElementById("experts-grid");
       experts.forEach((expert, index) => {
         const expertCard = `
-          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
             <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
                  alt="Expert Anonyme" class="w-24 h-24 rounded-full mx-auto mb-4">
             <h2 class="text-xl font-semibold text-sky-800 mb-2">Expert(e) Anonyme #${index + 1}</h2>
             <p class="text-gray-600 font-medium mb-2">${expert.specialty}</p>
             <p class="text-gray-600 mb-4">${expert.description}</p>
             <a href="connexion.html">
-  <button class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
-    Demander un échange
-  </button>
-</a>
-
+              <button class="bg-sky-600 text-white py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                Demander un échange
+              </button>
+            </a>
           </div>
         `;
         expertsGrid.innerHTML += expertCard;
@@ -60,6 +72,7 @@
 
     renderExperts();
 
+    // Injection du contenu du Navbar et Footer à partir de fichiers externes
     fetch("navbar.html").then(response => response.text()).then(data => {
       document.getElementById("navbar").innerHTML = data;
     });
