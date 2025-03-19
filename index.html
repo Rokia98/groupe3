@@ -18,7 +18,7 @@
         <!-- Contenu -->
         <div class="relative z-10 text-center px-4 py-16 max-w-4xl mx-auto">
             <h1 class="text-4xl font-bold mb-6">Parce que votre bien-être mental compte, à chaque étape de la maternité.</h1>
-            <p class="text-lg max-w-2xl mx-auto mb-8">Accédez à un soutien psychologique où que vous soyez en Côte d'Ivoire.</p>
+            <p class="text-lg max-w-2xl mx-auto mb-8">Dépression post-partum : comprenez, surmontez, rayonnez.</p>
             <a href="src/component/home.html" class="inline-block bg-white text-sky-800 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">Découvrir</a>
         </div>
     </header>
@@ -32,7 +32,7 @@
               <p class="mt-2 text-gray-600">Accédez à des psychologues et thérapeutes certifiés à distance.</p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/connexion.html">Espace Communautaire</a></h3>
+              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/groupe.html">Espace Communautaire</a></h3>
               <p class="mt-2 text-gray-600">Rejoignez des groupes de soutien et échangez avec des experts.</p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
@@ -40,7 +40,7 @@
               <p class="mt-2 text-gray-600">Découvrez des articles et conseils pour prendre soin de votre santé mentale.</p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/connexion.html">Méditation</a></h3>
+              <h3 class="text-xl font-semibold text-sky-800"><a href="src/component/meditation.html">Méditation</a></h3>
               <p class="mt-2 text-gray-600">Découvrez une session de méditation guidée pour vous aider à vous recentrer.</p>
           </div>
       </div>
@@ -134,7 +134,7 @@
       });
       
     // Charge le footer
-    fetch("footer.html")
+    fetch("src/component/footer.html")
       .then(response => response.text())
       .then(data => {
         document.getElementById("footer").innerHTML = data;

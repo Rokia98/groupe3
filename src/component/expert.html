@@ -12,14 +12,21 @@
 
   <!-- Section Bannière (Image) -->
   <section class="py-16 px-12">
-    <div class="text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] bg-no-repeat bg-cover text-white py-16 max-w-full max-h-[600px] mx-auto">
-      <!-- Titre -->
-      <h1 class="text-4xl font-bold text-white mb-6">Échanger avec un expert</h1>
-      <!-- Description -->
-      <p class="text-white font-semibold text-lg mb-8 max-w-2xl mx-auto">
-        Discutez de vos préoccupations avec des experts qualifiés de manière totalement anonyme et confidentielle.
-      </p>
+    <div class="relative text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] 
+            bg-no-repeat bg-cover bg-center text-white py-16 max-w-full max-h-[600px] mx-auto">
+    
+    <!-- Overlay avec opacité -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Contenu au-dessus de l'overlay -->
+    <div class="relative z-10 max-w-2xl mx-auto">
+        <h1 class="text-4xl font-bold text-white mb-6">Échanger avec un expert</h1>
+        <p class="text-white font-semibold text-lg mb-8">
+            Discutez de vos préoccupations avec des experts qualifiés de manière totalement anonyme et confidentielle.
+        </p>
     </div>
+</div>
+
   </section>
 
   <!-- Section Échanges Anonymes -->

@@ -9,20 +9,28 @@
 <body class="bg-gradient-to-br from-blue-100 to-blue-50 min-h-screen">
     <div id="navbar"></div> 
 
-    <main class="py-12 px-6">
-        
-        <div class="text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] bg-no-repeat bg-cover text-white py-16 max-w-full max-h-[600px] mx-auto">
-            <!-- Titre -->
-            <div class="max-w-lg mx-auto mt-12 mb-8">
-                <input type="text" id="searchInput" class="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="🔍 Rechercher une méditation...">
+    <main class="py-10 px-4">
+        <!-- Conteneur principal avec position relative -->
+        <div class="relative text-center bg-[url('https://i.pinimg.com/474x/b1/e0/3a/b1e03ad47aff5841e947f6245336f713.jpg')] 
+                    bg-no-repeat bg-cover bg-center text-white py-16 max-w-full max-h-[600px] mx-auto flex items-center justify-center">
+            
+            <!-- Overlay sombre pour améliorer la lisibilité du texte -->
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    
+            <!-- Conteneur du champ de recherche pour qu'il reste au-dessus de l'overlay -->
+            <div class="relative max-w-lg w-full">
+                <input type="text" id="searchInput" 
+                       class="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none 
+                              focus:ring-2 focus:ring-blue-300 text-gray-800 placeholder-gray-500" 
+                       placeholder="🔍 Rechercher une méditation...">
             </div>
-          </div><!-- Barre de recherche -->
-        
-
-        <section id="meditationList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Les méditations seront chargées ici dynamiquement -->
-        </section>
+        </div>
     </main>
+    
+
+    <section id="meditationList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Les méditations seront chargées ici dynamiquement -->
+    </section>
 
     <div id="footer"></div>
 
