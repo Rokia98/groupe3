@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur - Santé Mentale Post-Partum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-1/4 bg-blue-500 text-white p-6">
+            <h2 class="text-2xl font-semibold mb-6">Tableau de bord</h2>
+            <ul>
+                <li class="mb-4"><a href="#" class="hover:text-gray-300">Mon Profil</a></li>
+                <li class="mb-4"><a href="#" class="hover:text-gray-300">Santé Mentale Post-Partum</a></li>
+                <li class="mb-4"><a href="#" class="hover:text-gray-300">Suivi et Progrès</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="bg-white shadow-lg rounded-lg p-8">
+                <!-- Profil Utilisateur -->
+                <div class="flex items-center mb-8">
+                    <img class="w-24 h-24 rounded-full border-4 border-blue-500" src="https://cdn-icons-png.freepik.com/256/6997/6997481.png" alt="Photo Profil">
+                    <div class="ml-6">
+                        <h3 class="text-3xl font-semibold">Nom de l'utilisateur</h3>
+                        <p class="text-gray-600">Date d'inscription: 12 Mars 2025</p>
+                    </div>
+                </div>
+
+                <!-- Informations sur la santé mentale post-partum -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-4">État actuel de la santé mentale</h4>
+                        <p class="text-gray-700">Vous avez actuellement des signes de stress post-partum. Nous vous
+                            recommandons de consulter un professionnel pour un suivi.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-4">Évaluation de l'humeur</h4>
+                        <input type="range" id="moodRange" class="w-full" min="0" max="10" step="1">
+                        <div id="moodScore" class="text-center mt-4">Score d'humeur: 0</div>
+                    </div>
+                </div>
+
+                <!-- Graphique de Suivi -->
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold mb-4">Suivi des Progrès</h4>
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Script pour afficher l'évaluation de l'humeur
+        const moodRange = document.getElementById('moodRange');
+        const moodScore = document.getElementById('moodScore');
+        moodRange.addEventListener('input', () => {
+            moodScore.textContent = `Score d'humeur: ${moodRange.value}`;
+        });
+
+        // Script pour afficher un graphique de suivi
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4', 'Semaine 5'],
+                datasets: [{
+                    label: 'Niveau de stress',
+                    data: [5, 4, 3, 4, 2],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

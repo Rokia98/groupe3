@@ -4,22 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navigation Responsive</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/src/component/output.css">
 </head>
 <body class="bg-gray-50">
 
   <!-- Barre de navigation -->
   <nav class="bg-sky-100 shadow-md fixed w-full top-0 z-50">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center py-2"> <!-- Réduire py-3 à py-2 -->
+      <div class="flex justify-between items-center py-2">
         
         <!-- Logo -->
         <a href="/index.html">
-          <img src="/assets/logo1-removebg-preview.png" 
-               alt="Logo" class="w-16 h-16"> <!-- Réduire la taille du logo -->
+          <img src="/assets/logo1-removebg-preview.png" alt="Logo" class="w-16 h-16">
         </a>
 
-        <!-- Liens de navigation (version desktop) -->
+        <!-- Liens de navigation (Desktop) -->
         <div class="hidden md:flex space-x-6">
           <a href="/src/component/home.html" class="text-gray-700 hover:text-sky-600 transition">Accueil</a>
           <a href="/src/component/groupe.html" class="text-gray-700 hover:text-sky-600 transition">Groupes</a>
@@ -29,7 +28,7 @@
         </div>
 
         <!-- Bouton Profil -->
-        <a href="/profile" class="hidden md:flex bg-gray-200 text-gray-800 hover:bg-gray-300 transition rounded-full w-10 h-10 flex items-center justify-center">
+        <a href="/src/component/profile.html" class="hidden md:flex bg-gray-200 text-gray-800 hover:bg-gray-300 transition rounded-full w-10 h-10 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
           </svg>
@@ -46,7 +45,7 @@
     </div>
 
     <!-- Menu mobile -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white shadow-md transform -translate-x-full transition-transform duration-300 md:hidden">
+    <div id="mobile-menu" class="absolute top-16 right-0 left-0 bg-white shadow-lg hidden transition-all duration-300 md:hidden">
       <div class="px-6 py-6 space-y-4">
         <a href="home.html" class="block text-gray-700 hover:text-sky-600">Accueil</a>
         <a href="groupe.html" class="block text-gray-700 hover:text-sky-600">Groupes</a>
@@ -55,6 +54,7 @@
         <a href="meditation.html" class="block text-gray-700 hover:text-sky-600">Méditation</a>
       </div>
     </div>
+    
   </nav>
 
   <!-- Script JavaScript pour le menu mobile -->
@@ -74,26 +74,37 @@
       const burgerIcon = document.getElementById("burger-icon");
 
       mobileMenuButton.addEventListener("click", () => {
-        // Basculer l'état du menu mobile
-        if (mobileMenu.classList.contains("-translate-x-full")) {
-          mobileMenu.classList.remove("-translate-x-full");
-          mobileMenu.classList.add("translate-x-0");
-          burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // Icône croix
+        const isOpen = mobileMenu.classList.contains("scale-y-100");
+        
+        if (isOpen) {
+          mobileMenu.classList.remove("scale-y-100");
+          mobileMenu.classList.add("scale-y-0");
+          burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
         } else {
-          mobileMenu.classList.add("-translate-x-full");
-          mobileMenu.classList.remove("translate-x-0");
-          burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Icône menu burger
+          mobileMenu.classList.remove("scale-y-0");
+          mobileMenu.classList.add("scale-y-100");
+          burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
         }
       });
 
-      // Fermer le menu lorsqu'on clique sur un lien
-      document.querySelectorAll("#mobile-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("-translate-x-full");
-          mobileMenu.classList.remove("translate-x-0");
-          burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Revenir à l'icône burger
-        });
-      });
+      document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const burgerIcon = document.getElementById("burger-icon");
+
+    mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden"); // Afficher ou cacher le menu mobile
+        burgerIcon.classList.toggle("rotate-180"); // Petite rotation pour l'effet
+    });
+
+    // Fermer le menu lorsqu'on clique ailleurs
+    document.addEventListener("click", (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add("hidden");
+        }
+    });
+});
+
     });
   </script>
 
