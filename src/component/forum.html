@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Douce Maternité - Forum</title>
+    <!-- Lien vers Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-relaxed">
+
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-100 py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-semibold text-gray-800">Forum Douce Maternité et Santé Mentale</h2>
+            <p class="mt-4 text-xl text-gray-600">Échangez, partagez et soutenez les mamans pendant leur parcours de maternité et post-partum.</p>
+        </div>
+    </section>
+
+    <!-- Forum Discussion Section -->
+    <section id="discussion" class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-gray-800 text-center">Discussions Récentes</h3>
+            
+            <!-- Discussion Items -->
+            <div id="discussion-items" class="mt-8 space-y-8">
+                <!-- Discussions will be dynamically inserted here -->
+            </div>
+
+            <!-- New Discussion Button -->
+            <div class="mt-12 text-center">
+                <a href="#nouveau-post" class="bg-blue-600 text-white py-3 px-8 rounded-lg text-xl hover:bg-blue-700">Ajouter une Discussion</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Discussion Form -->
+    <section id="nouveau-post" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-gray-800 text-center">Créer une Nouvelle Discussion</h3>
+            <form id="discussion-form" method="POST" class="mt-8 bg-white p-8 rounded-lg shadow-lg">
+                <div class="mb-6">
+                    <label for="titre" class="block text-lg font-medium text-gray-700">Titre de la discussion</label>
+                    <input type="text" id="titre" name="titre" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label for="contenu" class="block text-lg font-medium text-gray-700">Contenu de la discussion</label>
+                    <textarea id="contenu" name="contenu" rows="6" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white py-3 px-8 rounded-lg text-xl hover:bg-blue-700">Publier la discussion</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>&copy; 2025 Douce Maternité - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Charge la barre de navigation
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar").innerHTML = data;
+          });
+    
+        // Charge le footer
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer").innerHTML = data;
+          });
+
+        // Fonction pour ajouter une nouvelle discussion
+        document.getElementById("discussion-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Récupérer les données du formulaire
+            const titre = document.getElementById("titre").value;
+            const contenu = document.getElementById("contenu").value;
+
+            // Créer un nouvel élément de discussion
+            const newDiscussion = document.createElement("div");
+            newDiscussion.classList.add("bg-white", "p-6", "rounded-lg", "shadow-md");
+
+            const discussionTitle = document.createElement("h4");
+            discussionTitle.classList.add("text-xl", "font-semibold", "text-blue-600");
+            discussionTitle.textContent = titre;
+
+            const discussionContent = document.createElement("p");
+            discussionContent.classList.add("text-gray-600", "mt-2");
+            discussionContent.textContent = contenu;
+
+            const footer = document.createElement("div");
+            footer.classList.add("mt-4", "flex", "items-center", "justify-between", "text-gray-500");
+
+            const userInfo = document.createElement("span");
+            userInfo.textContent = "Publié par Vous - maintenant";
+
+            const readMore = document.createElement("span");
+            readMore.classList.add("text-blue-600", "hover:underline", "cursor-pointer");
+            readMore.textContent = "Lire plus";
+
+            footer.appendChild(userInfo);
+            footer.appendChild(readMore);
+
+            newDiscussion.appendChild(discussionTitle);
+            newDiscussion.appendChild(discussionContent);
+            newDiscussion.appendChild(footer);
+
+            // Ajouter la nouvelle discussion dans le forum
+            document.getElementById("discussion-items").prepend(newDiscussion);
+
+            // Réinitialiser le formulaire
+            document.getElementById("discussion-form").reset();
+        });
+    </script>
+</body>
+</html>
