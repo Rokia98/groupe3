@@ -12,18 +12,10 @@
     <div class="max-w-4xl w-full px-12 py-8 bg-white rounded-2xl shadow-xl mx-auto mt-10">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Choisissez votre abonnement</h2>
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="border rounded-xl p-6 text-center shadow-md bg-gray-50 transition transform hover:scale-105">
-                <h3 class="text-xl font-semibold text-gray-700">Basic</h3>
-                <p class="text-2xl font-bold text-gray-900 mt-2">5000Fcfa/mois</p>
-                <ul class="text-gray-600 my-4">
-                    <li>✔ Accès limité</li>
-                    <li>✔ Support standard</li>
-                </ul>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" onclick="openPaymentModal('Basic', 9.99)">S'abonner</button>
-            </div>
+            
             <div class="border rounded-xl p-6 text-center shadow-md bg-white transition transform hover:scale-105">
                 <h3 class="text-xl font-semibold text-gray-700">Standard</h3>
-                <p class="text-2xl font-bold text-gray-900 mt-2">15000Fcfa/mois</p>
+                <p class="text-2xl font-bold text-gray-900 mt-2">10000Fcfa/mois</p>
                 <ul class="text-gray-600 my-4">
                     <li>✔ Accès illimité</li>
                     <li>✔ Support premium</li>
@@ -31,18 +23,8 @@
                 </ul>
                 <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" onclick="openPaymentModal('Standard', 19.99)">S'abonner</button>
             </div>
-            <div class="border rounded-xl p-6 text-center shadow-md bg-gray-50 transition transform hover:scale-105">
-                <h3 class="text-xl font-semibold text-gray-700">Premium</h3>
-                <p class="text-2xl font-bold text-gray-900 mt-2">50000Fcfa/mois</p>
-                <ul class="text-gray-600 my-4">
-                    <li>✔ Accès VIP</li>
-                    <li>✔ Support dédié 24/7</li>
-                    <li>✔ Fonctionnalités exclusives</li>
-                </ul>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" onclick="openPaymentModal('Premium', 29.99)">S'abonner</button>
-            </div>
         </div>
-    </div>
+           
 
     <div id="paymentModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-xl shadow-lg w-96">
