@@ -1,96 +1,138 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Utilisateur - Santé Mentale Post-Partum</title>
+    <title>Profil Utilisateur</title>
     <link href="/dist/output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body style="background-color:#f3f4f6">
 
-<body class="bg-gray-100">
+<div style="display:flex;min-height:100vh">
+    <div style="width:25%;background-color:#e0f2fe;color:black;padding:1.5rem">
+        <h2 style="font-size:1.5rem;font-weight:600;margin-bottom:1.5rem">Tableau de bord</h2>
+        <ul>
+            <li style="margin-bottom:1rem"><a href="profile.html" style="color:inherit">Mon Profil</a></li>
+            <li style="margin-bottom:1rem"><a href="#" style="color:inherit">Santé Mentale Post-Partum</a></li>
+            <li style="margin-bottom:1rem"><a href="#progressChart" style="color:inherit">Suivi et Progrès</a></li>
+        </ul>
+    </div>
 
-    <div class="flex min-h-screen">
-        <!-- Sidebar -->
-        <div class="w-1/4 bg-blue-500 text-white p-6">
-            <h2 class="text-2xl font-semibold mb-6">Tableau de bord</h2>
-            <ul>
-                <li class="mb-4"><a href="#" class="hover:text-gray-300">Mon Profil</a></li>
-                <li class="mb-4"><a href="#" class="hover:text-gray-300">Santé Mentale Post-Partum</a></li>
-                <li class="mb-4"><a href="#" class="hover:text-gray-300">Suivi et Progrès</a></li>
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <div class="flex-1 p-6">
-            <div class="bg-white shadow-lg rounded-lg p-8">
-                <!-- Profil Utilisateur -->
-                <div class="flex items-center mb-8">
-                    <img class="w-24 h-24 rounded-full border-4 border-blue-500" src="https://cdn-icons-png.freepik.com/256/6997/6997481.png" alt="Photo Profil">
-                    <div class="ml-6">
-                        <h3 class="text-3xl font-semibold">Nom de l'utilisateur</h3>
-                        <p class="text-gray-600">Date d'inscription: 12 Mars 2025</p>
-                    </div>
+    <div style="flex:1;padding:1.5rem">
+        <div style="background-color:white;border-radius:0.5rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+            <div style="display:flex;align-items:center;margin-bottom:2rem">
+                <img src="https://cdn-icons-png.freepik.com/256/6997/6997481.png" style="width:6rem;height:6rem;border-radius:9999px;border-width:4px;border-color:#3b82f6">
+                <div style="margin-left:1.5rem">
+                    <h3 style="font-size:1.875rem;font-weight:600">Nom de l'utilisateur</h3>
+                    <p style="color:#4b5563">Date d'inscription: 12 Mars 2025</p>
                 </div>
+            </div>
 
-                <!-- Informations sur la santé mentale post-partum -->
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h4 class="text-xl font-semibold mb-4">État actuel de la santé mentale</h4>
-                        <p class="text-gray-700">Vous avez actuellement des signes de stress post-partum. Nous vous
-                            recommandons de consulter un professionnel pour un suivi.</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h4 class="text-xl font-semibold mb-4">Évaluation de l'humeur</h4>
-                        <input type="range" id="moodRange" class="w-full" min="0" max="10" step="1">
-                        <div id="moodScore" class="text-center mt-4">Score d'humeur: 0</div>
-                    </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-bottom:2rem">
+                <div style="background-color:#f9fafb;padding:1.5rem;border-radius:0.5rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1)">
+                    <h4 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem">État actuel de la santé mentale</h4>
+                    <p style="color:#374151">Vous avez actuellement des signes de stress post-partum.</p>
                 </div>
+                <div style="background-color:#f9fafb;padding:1.5rem;border-radius:0.5rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1)">
+                    <h4 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem">Évaluation de l'humeur</h4>
+                    <input type="range" id="moodRange" style="width:100%" min="0" max="10" step="1" disabled>
+                    <div id="moodScore" style="text-align:center;margin-top:1rem">Score d'humeur: 0</div>
+                </div>
+            </div>
 
-                <!-- Graphique de Suivi -->
-                <div class="mt-8">
-                    <h4 class="text-xl font-semibold mb-4">Suivi des Progrès</h4>
-                    <canvas id="progressChart"></canvas>
+            <div style="background-color:#f9fafb;padding:1.5rem;border-radius:0.5rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);text-align:center;margin-bottom:2rem">
+                <h4 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem">Test d'évaluation de l'humeur</h4>
+                <p style="color:#6b7280;margin-bottom:1.5rem">Sélectionnez votre humeur sur une échelle de 1 à 5.</p>
+                <div style="display:flex;justify-content:center;gap:1rem;margin-bottom:1rem">
+                    <button onclick="selectMood(1)" style="padding:1rem;border-radius:9999px;background-color:#e5e7eb">&nbsp;😞&nbsp;</button>
+                    <button onclick="selectMood(2)" style="padding:1rem;border-radius:9999px;background-color:#e5e7eb">&nbsp;🙁&nbsp;</button>
+                    <button onclick="selectMood(3)" style="padding:1rem;border-radius:9999px;background-color:#e5e7eb">&nbsp;😐&nbsp;</button>
+                    <button onclick="selectMood(4)" style="padding:1rem;border-radius:9999px;background-color:#e5e7eb">&nbsp;😊&nbsp;</button>
+                    <button onclick="selectMood(5)" style="padding:1rem;border-radius:9999px;background-color:#e5e7eb">&nbsp;😁&nbsp;</button>
                 </div>
+                <p id="moodResult" style="margin-top:1rem;font-size:1.125rem;font-weight:500;color:#4b5563">Aucune humeur sélectionnée</p>
+                <button onclick="submitMood()" style="margin-top:1.5rem;padding-left:1.5rem;padding-right:1.5rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:#3b82f6;color:white;border-radius:9999px">
+                    Envoyer
+                </button>
+            </div>
+
+            <div style="background-color:white;border-radius:1rem;padding:1.5rem;max-width:32rem;width:100%;margin-bottom:2rem;text-align:center;box-shadow:0 20px 25px -5px rgba(0,0,0,0.1)">
+                <h2 style="font-size:1.5rem;font-weight:700;color:#374151;margin-bottom:1rem">Suivi et Progrès</h2>
+                <p style="color:#6b7280;margin-bottom:1.5rem">Visualisez vos progrès au fil du temps.</p>
+                <div style="background-color:#f3f4f6;padding:1rem;border-radius:0.5rem;margin-bottom:1.5rem">
+                    <h3 style="font-size:1.125rem;font-weight:600;color:#4b5563;margin-bottom:0.5rem">Votre progression</h3>
+                    <div style="width:100%;background-color:#d1d5db;border-radius:9999px;height:1.5rem">
+                        <div id="progressBar" style="background-color:#3b82f6;height:1.5rem;border-radius:9999px;width:50%"></div>
+                    </div>
+                    <p style="margin-top:0.5rem;color:#4b5563">50% atteint</p>
+                </div>
+                <button onclick="updateProgress()" style="margin-top:1.5rem;padding-left:1.5rem;padding-right:1.5rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:#3b82f6;color:white;border-radius:9999px">
+                    Mettre à jour
+                </button>
+            </div>
+
+            <div style="margin-top:2rem">
+                <h4 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem">Suivi des Progrès</h4>
+                <canvas id="progressChart"></canvas>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Script JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Script pour afficher l'évaluation de l'humeur
-        const moodRange = document.getElementById('moodRange');
-        const moodScore = document.getElementById('moodScore');
-        moodRange.addEventListener('input', () => {
-            moodScore.textContent = `Score d'humeur: ${moodRange.value}`;
-        });
+<div style="width:100%;padding:1rem;text-align:center;background-color:#1f2937;color:white">
+    <p>&copy; 2025 Douce Maternité. Tous droits réservés.</p>
+</div>
 
-        // Script pour afficher un graphique de suivi
-        const ctx = document.getElementById('progressChart').getContext('2d');
-        const progressChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4', 'Semaine 5'],
-                datasets: [{
-                    label: 'Niveau de stress',
-                    data: [5, 4, 3, 4, 2],
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1,
-                    fill: false
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+<script>
+// Mood Range
+document.getElementById('moodRange').addEventListener('input', function() {
+    document.getElementById('moodScore').textContent = 'Score d\'humeur: ' + this.value;
+});
 
+// Progress Chart
+new Chart(document.getElementById('progressChart').getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4', 'Semaine 5'],
+        datasets: [{
+            label: 'Niveau de stress',
+            data: [5, 4, 3, 4, 2],
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+});
+
+// Progress
+let progress = 50;
+function updateProgress() {
+    if (progress < 100) {
+        progress += 10;
+        document.getElementById('progressBar').style.width = progress + '%';
+        document.querySelector('#progressBar').nextElementSibling.textContent = progress + '% atteint';
+    } else {
+        alert("Félicitations ! Vous avez atteint votre objectif.");
+    }
+}
+
+// Mood
+let selectedMood = 0;
+function selectMood(mood) {
+    selectedMood = mood;
+    document.getElementById('moodResult').textContent = 'Humeur sélectionnée : ' + mood;
+    document.getElementById('moodRange').value = mood;
+    document.getElementById('moodScore').textContent = 'Score d\'humeur: ' + mood;
+}
+
+function submitMood() {
+    if (selectedMood === 0) {
+        alert("Veuillez sélectionner une humeur avant d'envoyer.");
+    } else {
+        alert('Merci ! Votre humeur (' + selectedMood + ') a été enregistrée.');
+    }
+}
+</script>
 </body>
-
 </html>
